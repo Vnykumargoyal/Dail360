@@ -15,7 +15,7 @@ export class StatusPipe implements PipeTransform {
     // console.log('hi',dataSource)
     // return dataSource.filter(data =>
     // // dataSource.filter(data =>{
-    //   // debugger
+    //   //
     //     data.AgentId.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
     //     data.AgentStatus.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
     //     data.Extension.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||

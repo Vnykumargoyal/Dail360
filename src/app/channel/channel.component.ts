@@ -117,7 +117,7 @@ export class ChannelComponent implements OnInit,OnDestroy {
       this.getSortData('','',this.urldata1);
     });
 
-    this.dataSource = ELEMENT_DATA;
+    // this.dataSource = ELEMENT_DATA;
     // this.getChart()
 
   }
@@ -295,7 +295,7 @@ export class ChannelComponent implements OnInit,OnDestroy {
   }
 
   removeBtn(value,val){
-    debugger
+
     if(this.searchData.length > 0){
       let index = this.searchData.indexOf(val);
       this.searchData.splice(index, 1)
@@ -322,7 +322,7 @@ export class ChannelComponent implements OnInit,OnDestroy {
   }
 
   changed(value){
-    debugger
+
     this.showChart = value;
     if(this.showChart === true){
       this.getChart(this.urldata1);

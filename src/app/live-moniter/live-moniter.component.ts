@@ -116,7 +116,7 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
   }
 
   ngOnInit() {
-    debugger
+
     let url = window.location.href;
     this.urldata = url.split('?') ;
     this.urldata1 = this.urldata[1];
@@ -130,7 +130,7 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
       this.getSortData('','',this.urldata1);
     });
 
-    this.dataSource = ELEMENT_DATA;
+    // this.dataSource = ELEMENT_DATA;
     this.getChart('','',this.urldata1)
 
   }
@@ -140,7 +140,7 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
   getChart(col,type,urldata1){
 
     this.apiData.getCallHeadersData(urldata1).subscribe((data)=>{
-      debugger
+
       this.data = [
           {'name': 'TotalLogin', 'value': data[0].TotalLogin},
           {'name': 'blockCount', 'value':data[0].blockCount},
@@ -310,7 +310,7 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
   }
 
   removeBtn(value,val){
-    debugger
+
     if(this.searchData.length > 0){
       let index = this.searchData.indexOf(val);
       this.searchData.splice(index, 1)
@@ -337,7 +337,7 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
   }
 
   changed(value){
-    debugger
+
     this.showChart = value;
     if(this.showChart === true){
       this.getChart('','',this.urldata1);

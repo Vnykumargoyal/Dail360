@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     // this.apiData.getCallData().subscribe((data) => {
-    //   debugger
+    //
     //   console.log('Hi Data',data )
     // })
   }

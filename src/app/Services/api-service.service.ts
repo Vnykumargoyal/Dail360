@@ -28,7 +28,7 @@ export class ApiServiceService {
   }
 
   getCallDataWithSort(col,type,data) {
-    debugger
+
     if(data !== undefined){
       return this.http.get<any>(`http://154.27.79.62:8080/monitorAPI/request/agentJSON?column=${type}&type=${col}&${data}`);
     } else {

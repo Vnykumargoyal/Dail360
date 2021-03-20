@@ -39,7 +39,7 @@ export class CampaignQueueComponent implements OnInit {
     this.urldata = url.split('?') ;
     this.urldata1 = this.urldata[1];
     this.getCampaign(this.urldata1);
-    this.dataSource = ELEMENT_DATA;
+    // this.dataSource = ELEMENT_DATA;
 
     interval(3000).subscribe(x => {
       this.getCampaign(this.urldata1);

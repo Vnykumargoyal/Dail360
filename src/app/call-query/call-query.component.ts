@@ -68,7 +68,7 @@ export class CallQueryComponent implements OnInit {
   }
 
   changedCall(value){
-    debugger
+
     this.showChartCall = value;
     if(this.showChartCall === true){
       this.getChartCall();
