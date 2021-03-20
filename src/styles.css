@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@ng-select/ng-select/themes/material.theme.css"; */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(43,43,162,0.981127485173757) 43%, rgba(0,212,255,1) 100%,url(./assets/assets/img/brand/dailer.png)); */
+  /* bottom, image */
+  /* background-image: url(./assets/assets/img/brand/dailer.png); */
+  /* background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(61,113,174,0.981127485173757) 43%, rgba(0,212,255,1) 100%); */
+  background:#7889e8;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+  .table{
+    margin-bottom: 0px !important;
+  }
+
+  .table th, .table td{
+    padding: 8px !important;
+  }
+
+  .advanced-pie-legend .legend-items-container .legend-items .legend-item {
+    display: inherit !important;
+  }
+
+  /* svg[Attributes Style]{
+
+  } */
+
+  .ngx-charts-outer.ng-trigger.ng-trigger-animationState{
+    margin: auto;
+  }
+
+
+
+
+

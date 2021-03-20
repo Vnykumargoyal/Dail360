@@ -1,0 +1,235 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2">
+        <input type="checkbox" id="toggle-button-checkbox"(change)="changed($event.target.checked)">
+        <label class="toggle-button-switch"  for="toggle-button-checkbox"></label>
+        <div class="toggle-button-text">
+          <div class="toggle-button-text-on">Tab</div>
+          <div class="toggle-button-text-off">Chart</div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="alert alert-secondary" style="text-align:center; margin-bottom: 5px;
+        padding: 5px 1.5rem;">
+          <strong >Channel Status</strong>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-sm-12 col-md-12 text-center" >
+
+
+        <div *ngFor="let ele of headerData">
+          <button type="button" class="btn btn-info" style="margin-top:5px; margin-bottom:10px">Total: {{ele.Total}}</button>
+          <button type="button" class="btn btn-danger" style="margin-top:5px; margin-bottom:10px" (click)="customFilter('dial')">Dial: {{ele.Dial}}</button>
+          <button type="button" class="btn btn-warning" style="margin-top:5px; margin-bottom:10px" (click)="customFilter('alarm')">Alarm: {{ele.Alarm}}</button>
+          <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" (click)="customFilter('idle')">IDLE: {{ele.Idle}}</button>
+          <button type="button" class="btn btn-success" style="margin-top:5px; margin-bottom:10px" (click)="customFilter('reserve')">Reserve: {{ele.Reserve}}</button>
+          <button type="button" class="btn btn-secondary" style="margin-top:5px; margin-bottom:10px" (click)="customFilter('ring')">Ring: {{ele.Ring}}</button>
+          <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" (click)="customFilter('talk')">Talk: {{ele.Talk}}</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body px-lg-5 py-lg-5" style="padding-bottom: 0px !important; padding-top: 0px !important;">
+      <form role="form">
+        <div class="form-group mb-3" >
+          <div class="input-group input-group-merge input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input class="form-control" placeholder="Filter" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" (change)="customFilter($event)">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 text-center">
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value1">{{value1}} <i (click)="removeBtn(1,value1)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value2">{{value2}} <i (click)="removeBtn(2,value2)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value3">{{value3}} <i (click)="removeBtn(3,value3)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value4">{{value4}} <i (click)="removeBtn(4,value4)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value5">{{value5}} <i (click)="removeBtn(5,value5)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value6">{{value6}} <i (click)="removeBtn(6,value6)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value7">{{value7}} <i (click)="removeBtn(7,value7)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value8">{{value8}} <i (click)="removeBtn(8,value8)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+            <button type="button" class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" *ngIf="value9">{{value9}} <i (click)="removeBtn(9,value9)" class="my-icon fas fa-times" style="color:red; margin-left: 5px;" ></i></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="text-center" style="color: red; font-size:16px; font-weight:600; letter-spacing:1px" >{{error}}</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="!showChart">
+    <div class="row" style="  padding-bottom: 0px;">
+      <div style="width: 100%;">
+        <div class="table-responsive" >
+          <div>
+              <table class="table align-items-center table-light " >
+                  <thead class="thead-dark">
+                    <tr >
+                      <th scope="col" class="name mb-0 text-sm disIcon" data-sort="name">CampaignID <i (click)="onSortClick($event, 'CampaignID')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="budget">Status <i (click)="onSortClick($event, 'Status')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Campaign <i (click)="onSortClick($event, 'Campaign')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Channel <i (click)="onSortClick($event, 'Channel')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Exten <i (click)="onSortClick($event, 'Exten')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">PhoneNo <i (click)="onSortClick($event, 'PhoneNo')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">ReqSince <i (click)="onSortClick($event, 'ReqSince')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">ReqType <i (click)="onSortClick($event, 'CallType')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">ReqReason <i (click)="onSortClick($event, 'ReqReason')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Since <i (click)="onSortClick($event, 'Since')" class="my-icon fa fa-chevron-up"></i></th>
+                      <!-- <th scope="col" class="name mb-0 text-sm" data-sort="status">TalkTime <i (click)="onSortClick($event, 'TalkTime')" class="my-icon fa fa-chevron-up"></i></th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">WrapTime <i (click)="onSortClick($event, 'WrapTime')" class="my-icon fa fa-chevron-up"></i></th> -->
+                    </tr>
+                  </thead>
+                  <tbody class="list">
+                    <tr *ngFor="let element of dataSource | filter:value1 | filter:value2 | filter:value3 | filter: value4 | filter:value5 | filter:value6 | filter: value7 | filter:value8 | filter:value9">
+                    <!--   -->
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm " style="color:#525f7f">{{element.CampaignID | titlecase }}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" >
+                        <div class="media align-items-center">
+                          <div class="media-body text-center" [ngSwitch]="element.Status">
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Incall'" style="color:#2dce89; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Incall(Hold)'" style="color:#2dce89; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Idle'" style="color:#adb5bd; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Idle(Busy)'" style="color:#adb5bd; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Wrapup'" style="color:#f5365c; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Dialing'" style="color:#5e72e4; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Ringing'" style="color:#11cdef; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchCase = "'Reserved'" style="color:#11cdef; font-size:20px !important">{{element.Status}}</span>
+                            <span class=" mb-0 text-sm" *ngSwitchDefault style="color:#11cdef; font-size:20px !important">{{element.Status}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" >
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f">{{element.Campaign}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f">{{element.Channel}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class="name mb-0 text-sm" style="color:#525f7f">{{element.Exten}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f">{{element.PhoneNo}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <!-- <span class=" mb-0 text-sm">{{element.Duration}}</span> -->
+                            <span class=" mb-0 text-sm " *ngIf="element.ReqSince <= '00:00:30'" style="color:#2dce89">{{element.ReqSince}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.ReqSince > '00:00:30' && element.Duration <= '00:00:60'" style="color:#5e72e4">{{element.ReqSince}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.ReqSince > '00:00:60'" style="color:#f5365c">{{element.ReqSince}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <!-- {{element.Campaign | json}} -->
+                      <!-- *ngIf="element.CallType !== 'undefined'" -->
+                      <th scope="row" >
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f">{{element.ReqType}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f" >{{element.ReqReason}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f">{{element.Since}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <!-- <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.TalkTime}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.WrapTime}}</span>
+                          </div>
+                        </div>
+                      </th> -->
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container" [style.display]="showChart ? 'block' : 'none'">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <!-- <div class="chart-container" style="position: relative; height:100%; width:100%">
+          <canvas id="canvas" ></canvas>
+        </div> -->
+        <!-- <div class="container-fluid"> -->
+          <ngx-charts-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="data"
+            [gradient]="gradient"
+            [legend]="showLegend"
+            [legendPosition]="legendPosition"
+            [labels]="showLabels"
+            [doughnut]="isDoughnut"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+
+            >
+            <ng-template #tooltipTemplate let-model="model">
+              <div style="color:#fff">
+                {{model.name}}
+              </div>
+              <div style="color:#fff">{{model.value}}%</div>
+            </ng-template>
+          </ngx-charts-pie-chart>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+

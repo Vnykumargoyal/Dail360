@@ -1,0 +1,14 @@
+.dailerBackground{
+
+    /* top, transparent red */
+    /* background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(43,43,162,0.981127485173757) 43%, rgba(0,212,255,1) 100%,url(../assets/assets/img/brand/dailer.png)); */
+    /* background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(61,113,174,0.981127485173757) 43%, rgba(0,212,255,1) 100%); */
+    background:#7889e8;
+    /* url(../assets/assets/img/brand/dailer.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}

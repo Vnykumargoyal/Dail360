@@ -1,0 +1,112 @@
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        <input type="checkbox" id="toggle-button-checkbox1"(change)="changedCall($event.target.checked)">
+        <label class="toggle-button-switch"  for="toggle-button-checkbox1"></label>
+        <div class="toggle-button-text">
+          <div class="toggle-button-text-on">ON</div>
+          <div class="toggle-button-text-off">Off</div>
+        </div>
+      </div>
+      <div class="col-sm-10">
+        <div class="alert alert-secondary" style="text-align:center; margin-bottom: 5px;
+        padding: 5px 1.5rem;">
+          <strong >Call Queue!</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row" style=" padding-bottom: 0px; margin-top: 10px; margin-bottom:10px; " *ngIf="!showChartCall">
+      <div style="width: 100%;">
+        <div class="table-responsive" >
+          <div>
+              <table class="table align-items-center table-light " >
+                  <thead class="thead-dark">
+                    <tr >
+                      <th scope="col" class="name mb-0 text-sm disIcon" data-sort="name" style="text-align: center;">Status </th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="budget" style="text-align: center;">Campaign </th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status" style="text-align: center;">PhoneNo </th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status" style="text-align: center;">Since </th>
+                    </tr>
+                  </thead>
+                  <tbody class="list">
+                    <tr *ngFor="let element of dataSource | filter:value1 | filter:value2 | filter:value3 | filter: value4 | filter:value5 | filter:value6 | filter: value7 | filter:value8 | filter:value9">
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm " style="color:#525f7f">{{element.Status | titlecase }}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" >
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" >{{element.Campaign}}</span>
+                            <!-- <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Incall(Hold)'" style="color:#2dce89; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Idle'" style="color:#adb5bd; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Idle(Busy)'" style="color:#adb5bd; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Wrapup'" style="color:#f5365c; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Dialing'" style="color:#5e72e4; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Ringing'" style="color:#11cdef; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Reserved'" style="color:#11cdef; font-size:20px !important">{{element.AgentStatus}}</span> -->
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" >
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f">{{element.PhoneNo}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#525f7f">{{element.Since}}</span>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container" >
+    <div class="row" [style.display]="showChartCall ? 'block' : 'none'" style=" margin-top: 10px; margin-bottom:10px">
+      <!-- <div class="col-sm-12 col-md-12"> -->
+        <!-- <div class="chart-container" style="position: relative; height: 50vh;">
+          <canvas id="canvas1" ></canvas>
+        </div> -->
+        <!-- <div class="container-fluid"> -->
+          <ngx-charts-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="data"
+            [gradient]="gradient"
+            [legend]="showLegend"
+            [legendPosition]="legendPosition"
+            [labels]="showLabels"
+            [doughnut]="isDoughnut"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+          >
+            <ng-template #tooltipTemplate let-model="model">
+              <div style="color:#fff">
+                {{model.name}}
+              </div>
+              <div style="color:#fff">{{model.value}}%</div>
+            </ng-template>
+          </ngx-charts-pie-chart>
+        <!-- </div> -->
+      <!-- </div> -->
+    </div>
+  </div>
+

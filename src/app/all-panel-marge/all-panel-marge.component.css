@@ -1,0 +1,25 @@
+@media screen and (min-width: 1120px){
+  .marginAlign{
+    margin-bottom: 100px;
+  }
+}
+
+.marginAlign{
+  margin-bottom: 0px;
+}
+
+table thead, table tbody {
+  display: block;
+  position: relative;
+  }
+
+ table th, table td {
+  width: 150px;
+  text-align: center;
+  }
+
+  table tbody {
+  height: 50vh;
+  /* height: auto; */
+  overflow: auto;
+  }

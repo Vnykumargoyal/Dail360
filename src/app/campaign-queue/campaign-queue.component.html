@@ -1,0 +1,165 @@
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="alert alert-secondary" style="text-align:center; margin-bottom: 5px;
+        padding: 5px 1.5rem;">
+          <strong >Campaign Queue!</strong>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="  padding-bottom: 0px;">
+      <div style="width: 100%;">
+        <div class="table-responsive" style="height: auto;">
+          <div>
+              <table class="table align-items-center table-light " >
+                  <thead class="thead-dark">
+                    <tr >
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Campaign</th>
+                      <th scope="col" class="name mb-0 text-sm disIcon" data-sort="name">QueueSince</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="budget">AgentAbndnd</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Break</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">OfferedCalls</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Wrapup</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Incall</th>
+
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">OfferedOnAgents</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Idle</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">CallsInQueue</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">Avg.HandleTime</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">AgentAnswered</th>
+                      <th scope="col" class="name mb-0 text-sm" data-sort="status">AbndndInQueue</th>
+                      <!-- <th scope="col" class="name mb-0 text-sm" data-sort="status">Avarage AHT</th> -->
+                    </tr>
+                  </thead>
+
+                  <!-- {{dataSource | json}} -->
+                  <tbody class="list">
+                    <tr *ngFor="let element of dataSource | filter:value1 | filter:value2 | filter:value3 | filter: value4 | filter:value5 | filter:value6 | filter: value7 | filter:value8 | filter:value9">
+                      <th scope="row" style="background:#008080">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <!-- <span class=" mb-0 text-sm">{{element.Duration}}</span> -->
+                            <span class=" mb-0 text-sm " style="color:#ffffff">{{element.Campaign}}</span>
+                            <!-- <span class=" mb-0 text-sm" *ngIf="element.Duration > '00:00:30' && element.Duration <= '00:00:60'" style="color:#5e72e4">{{element.Duration}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.Duration > '00:00:50'" style="color:#f5365c">{{element.Duration}}</span> -->
+                            <!-- <span class=" mb-0 text-sm" *ngIf="element.Duration <= '00:00:30'" style="color:#5e72e4">{{element.Duration}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.Duration <= '00:00:30'" style="color:#11cdef">{{element.Duration}}</span> -->
+                          </div>
+                        </div>
+                      </th>
+
+
+                      <th scope="row" style="background:#fb6340">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm " style="color:#ffffff">{{element.QueueSince}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#778899">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm"  style="color:#2dce89; font-size:20px !important">{{element.AgentAbndnd}}</span>
+                            <!-- <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Incall(Hold)'" style="color:#2dce89; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Idle'" style="color:#adb5bd; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Idle(Busy)'" style="color:#adb5bd; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Wrapup'" style="color:#f5365c; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Dialing'" style="color:#5e72e4; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Ringing'" style="color:#11cdef; font-size:20px !important">{{element.AgentStatus}}</span>
+                            <span class=" mb-0 text-sm" *ngIf="element.AgentStatus === 'Reserved'" style="color:#11cdef; font-size:20px !important">{{element.AgentStatus}}</span> -->
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#2dce89">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.Break}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#5e72e4">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.OfferedCalls}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#2dce89">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class="name mb-0 text-sm" style="color:#ffffff">{{element.Wrapup}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#11cdef">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.Incall}}</span>
+                          </div>
+                        </div>
+                      </th>
+
+                      <!-- {{element.Campaign | json}} -->
+                      <!-- *ngIf="element.CallType !== 'undefined'" -->
+                      <th scope="row"  style="background:#f5365c">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.OfferedOnAgents}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#5e72e4">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff" >{{element.Idle}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#778899">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.CallsInQueue}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#11cdef">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.AVGHANDLETIME}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#2dce89">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.AgentAnswered}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <th scope="row" style="background:#f5365c">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.AbndndInQueue}}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <!-- <th scope="row" style="background:#fb6340">
+                        <div class="media align-items-center">
+                          <div class="media-body text-center">
+                            <span class=" mb-0 text-sm" style="color:#ffffff">{{element.WrapTime}}</span>
+                          </div>
+                        </div>
+                      </th> -->
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+
