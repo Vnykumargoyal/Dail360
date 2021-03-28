@@ -345,6 +345,16 @@
                           </div>
                         </div>
                       </th>
+                      <th scope="row">
+                        <div>
+                          <popover-content #myPopover
+                              [closeOnClickOutside]="true">
+                              <p class=" mb-0 text-sm" style="color:#525f7f; font-weight:700; font-size:15px sans-serif;">Logout</p>
+                          </popover-content>
+                          <i class="fas fa-ellipsis-v" [popover]="myPopover" [popoverOnHover]="false" popoverPlacement="left"></i>
+                          <!-- <button [popover]="myPopover">click this button to see a popover</button> -->
+                        </div>
+                      </th>
                     </tr>
                   </tbody>
               </table>
