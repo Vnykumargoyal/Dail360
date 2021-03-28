@@ -130,7 +130,7 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
       this.getSortData('','',this.urldata1);
     });
 
-    // this.dataSource = ELEMENT_DATA;
+    this.dataSource = ELEMENT_DATA;
     this.getChart('','',this.urldata1)
 
   }

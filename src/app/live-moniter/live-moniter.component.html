@@ -97,6 +97,7 @@
                       <th scope="col" class="name mb-0 text-sm" data-sort="status">LoginHrs <i (click)="onSortClick($event, 'LoginHrs')" class="my-icon fa fa-chevron-up"></i></th>
                       <th scope="col" class="name mb-0 text-sm" data-sort="status">TalkTime <i (click)="onSortClick($event, 'TalkTime')" class="my-icon fa fa-chevron-up"></i></th>
                       <th scope="col" class="name mb-0 text-sm" data-sort="status">WrapTime <i (click)="onSortClick($event, 'WrapTime')" class="my-icon fa fa-chevron-up"></i></th>
+
                     </tr>
                   </thead>
                   <tbody class="list">
@@ -198,6 +199,16 @@
                             <span class=" mb-0 text-sm" style="color:#525f7f">{{element.WrapTime}}</span>
                           </div>
                         </div>
+                      </th>
+                      <th  scope="row">
+                        <div>
+                          <popover-content #myPopover
+                              [closeOnClickOutside]="true">
+                              <p class=" mb-0 text-sm" style="color:#525f7f; font-weight:700; font-size:15px sans-serif;">Logout</p>
+                          </popover-content>
+                          <i class="fas fa-ellipsis-v" [popover]="myPopover" [popoverOnHover]="false" popoverPlacement="left"></i>
+                          <!-- <button [popover]="myPopover">click this button to see a popover</button> -->
+                      </div>
                       </th>
                     </tr>
                   </tbody>

@@ -10,7 +10,7 @@ export class ApiServiceService {
 
   getCallData(userData) {
     if(userData !== undefined){
-      return this.http.get<any>(`${this.urlDynmic}/monitorAPI/request/agentJSON?${userData}`);
+      return this.http.get<any>(`http://203.110.84.237:803/monitorAPI/request/agentJSON?${userData}`);
     } else{
       return this.http.get<any>('http://203.110.84.237:803/monitorAPI/request/agentJSON');
     }

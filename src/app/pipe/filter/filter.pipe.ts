@@ -8,8 +8,6 @@ export class FilterPipe implements PipeTransform {
     if (!dataSource || !searchValue){
       return dataSource;
     }
-
-
     console.log('hi',dataSource)
     return dataSource.filter(data =>
       data.AgentId.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||

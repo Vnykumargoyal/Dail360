@@ -2,6 +2,7 @@
 /* @import "~@ng-select/ng-select/themes/material.theme.css"; */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+
   /* background: rgb(2,0,36);
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(43,43,162,0.981127485173757) 43%, rgba(0,212,255,1) 100%,url(./assets/assets/img/brand/dailer.png)); */
   /* bottom, image */
@@ -12,6 +13,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(61,113,174,0.98112748
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
+  @import "~bootstrap/dist/css/bootstrap.css";
 
   .table{
     margin-bottom: 0px !important;
