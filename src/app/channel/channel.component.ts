@@ -117,7 +117,7 @@ export class ChannelComponent implements OnInit,OnDestroy {
       this.getSortData('','',this.urldata1);
     });
 
-    this.dataSource = ELEMENT_DATA;
+    // this.dataSource = ELEMENT_DATA;
     // this.getChart()
 
   }
@@ -193,7 +193,7 @@ export class ChannelComponent implements OnInit,OnDestroy {
 
 
   filterAdded(value) {
-    debugger
+
     if(typeof(value) === 'string'){
        this.val = value;
     } else {
@@ -242,7 +242,7 @@ export class ChannelComponent implements OnInit,OnDestroy {
   // }
 
   customFilter(value){
-    debugger
+
     if(typeof(value) === 'string'){
         this.val = value;
     } else {
@@ -261,7 +261,7 @@ export class ChannelComponent implements OnInit,OnDestroy {
   }
 
   getSortSearchData(){
-    debugger
+
     if(this.searchData.length === 1) {
       this.value1 = this.val;
       this.searchText = undefined;
