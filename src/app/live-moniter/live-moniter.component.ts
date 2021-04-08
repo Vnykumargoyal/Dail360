@@ -153,6 +153,13 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
     })
   }
 
+  getDataLogout(id,ext){
+    this.apiData.getLogout(id,ext).subscribe((data)=>{
+      debugger
+      console.log(data);
+    });
+  }
+
 
 
 

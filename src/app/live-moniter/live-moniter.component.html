@@ -85,6 +85,7 @@
               <table class="table align-items-center table-light " >
                   <thead class="thead-dark ">
                     <tr >
+                      <th scope="col" class="name mb-0 text-sm disIcon" data-sort="name">Action </th>
                       <th scope="col" class="name mb-0 text-sm disIcon" data-sort="name">AgentId <i (click)="onSortClick($event, 'AgentId')" class="my-icon fa fa-chevron-up"></i></th>
                       <th scope="col" class="name mb-0 text-sm" data-sort="budget">AgentStatus <i (click)="onSortClick($event, 'AgentStatus')" class="my-icon fa fa-chevron-up"></i></th>
                       <th scope="col" class="name mb-0 text-sm" data-sort="status">Extension <i (click)="onSortClick($event, 'Extension')" class="my-icon fa fa-chevron-up"></i></th>
@@ -103,6 +104,16 @@
                   <tbody class="list">
                     <tr *ngFor="let element of dataSource | filter:value1 | filter:value2 | filter:value3 | filter: value4 | filter:value5 | filter:value6 | filter: value7 | filter:value8 | filter:value9">
                     <!--   -->
+                    <th  scope="row">
+                      <div>
+                        <popover-content #myPopover
+                            [closeOnClickOutside]="true">
+                            <p class=" mb-0 text-sm" style="color:#525f7f; font-weight:700; font-size:15px sans-serif;" (click)="getDataLogout(element.AgentId,element.Extension)">Logout</p>
+                        </popover-content>
+                        <i class="fas fa-ellipsis-v" [popover]="myPopover" [popoverOnHover]="false" popoverPlacement="right"></i>
+                        <!-- <button [popover]="myPopover">click this button to see a popover</button> -->
+                    </div>
+                    </th>
                       <th scope="row">
                         <div class="media align-items-center">
                           <div class="media-body text-center">
@@ -200,16 +211,7 @@
                           </div>
                         </div>
                       </th>
-                      <th  scope="row">
-                        <div>
-                          <popover-content #myPopover
-                              [closeOnClickOutside]="true">
-                              <p class=" mb-0 text-sm" style="color:#525f7f; font-weight:700; font-size:15px sans-serif;">Logout</p>
-                          </popover-content>
-                          <i class="fas fa-ellipsis-v" [popover]="myPopover" [popoverOnHover]="false" popoverPlacement="left"></i>
-                          <!-- <button [popover]="myPopover">click this button to see a popover</button> -->
-                      </div>
-                      </th>
+
                     </tr>
                   </tbody>
               </table>
@@ -221,6 +223,7 @@
               <table class="table align-items-center table-light "  >
                   <thead class="thead-dark ">
                     <tr >
+                      <th scope="col" class="name mb-0 text-sm disIcon" data-sort="name">Action </th>
                       <th scope="col" class="name mb-0 text-sm disIcon" data-sort="name">AgentId <i (click)="onSortClick($event, 'AgentId')" class="my-icon fa fa-chevron-up"></i></th>
                       <th scope="col" class="name mb-0 text-sm" data-sort="budget">AgentStatus <i (click)="onSortClick($event, 'AgentStatus')" class="my-icon fa fa-chevron-up"></i></th>
                       <th scope="col" class="name mb-0 text-sm" data-sort="status">ExtStatus <i (click)="onSortClick($event, 'ExtStatus')" class="my-icon fa fa-chevron-up"></i></th>
@@ -238,6 +241,16 @@
                   <tbody class="list">
                     <tr *ngFor="let element of dataSource | filter:value1 | filter:value2 | filter:value3 | filter: value4 | filter:value5 | filter:value6 | filter: value7 | filter:value8 | filter:value9">
                     <!--   -->
+                    <th scope="row">
+                      <div>
+                        <popover-content #myPopover
+                            [closeOnClickOutside]="true">
+                            <p class=" mb-0 text-sm" style="color:#525f7f; font-weight:700; font-size:15px sans-serif;" (click)="getDataLogout(element.AgentId,element.Extension)">Logout</p>
+                        </popover-content>
+                        <i class="fas fa-ellipsis-v" [popover]="myPopover" [popoverOnHover]="false" popoverPlacement="right"></i>
+                        <!-- <button [popover]="myPopover">click this button to see a popover</button> -->
+                      </div>
+                    </th>
                       <th scope="row">
                         <div class="media align-items-center">
                           <div class="media-body text-center">
@@ -345,16 +358,7 @@
                           </div>
                         </div>
                       </th>
-                      <th scope="row">
-                        <div>
-                          <popover-content #myPopover
-                              [closeOnClickOutside]="true">
-                              <p class=" mb-0 text-sm" style="color:#525f7f; font-weight:700; font-size:15px sans-serif;">Logout</p>
-                          </popover-content>
-                          <i class="fas fa-ellipsis-v" [popover]="myPopover" [popoverOnHover]="false" popoverPlacement="left"></i>
-                          <!-- <button [popover]="myPopover">click this button to see a popover</button> -->
-                        </div>
-                      </th>
+
                     </tr>
                   </tbody>
               </table>

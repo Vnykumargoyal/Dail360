@@ -46,6 +46,11 @@ export class ApiServiceService {
 
   }
 
+  getLogout(id,ext){
+    debugger
+    return this.http.get<any>(`http://74.81.33.126:8080/monitorAPI/request/logout?agentid=${id}&extension=${ext}`);
+  }
+
   getCallDataWithSortForCampaign(userData) {
     if(userData !== undefined){
       return this.http.get<any>(`http://154.27.79.62:8080/monitorAPI/campaign/campaignJSON?${userData}`);
