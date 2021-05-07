@@ -62,7 +62,7 @@ export class CallQueryComponent implements OnInit {
     // this.dataSource = ELEMENT_DATA;
     this.getChannelData(this.urldata1);
 
-    interval(3000).subscribe(x => {
+    interval(5000).subscribe(x => {
       this.getChannelData(this.urldata1);
     });
   }

@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agent.component.css']
 })
 export class AgentComponent implements OnInit {
+  opened: boolean = false;
+  transferModal;
+  breakModal;
+  conferenceModal;
+  dialModal;
+  dailNum = '';
 
   constructor() { }
 
@@ -13,14 +19,55 @@ export class AgentComponent implements OnInit {
     console.log(document.getElementById('sidenav-collapse-main'))
   }
 
-  openNav() {
-    document.getElementById("sidenav-collapse-main").style.width = "250px";
-    document.getElementById("sidenav-main").style.marginLeft = "250px";
+
+  _toggleSidebar() {
+    this.opened = !this.opened;
   }
 
-  closeNav() {
-    document.getElementById("sidenav-collapse-main").style.width = "0";
-    document.getElementById("sidenav-main").style.marginLeft= "0";
+  transferModalHide(){
+    this.transferModal = false;
   }
+
+  opentransferModal(){
+    this.transferModal = true;
+  }
+
+  breakModalHide(){
+    this.breakModal = false;
+  }
+
+  openbreakModal(){
+    this.breakModal = true;
+  }
+
+  conferenceModalHide(){
+    this.conferenceModal = false;
+  }
+
+  openconferenceModal(){
+    this.conferenceModal = true;
+  }
+
+  dialModalHide(){
+    this.dialModal = false;
+  }
+
+  opendialModal(){
+    this.dialModal = true;
+  }
+
+  clickOnNumber(val){
+    debugger
+    if(this.dailNum.length < 10){
+      if(this.dailNum !== ''){
+        this.dailNum = this.dailNum + val;
+      } else{
+        this.dailNum = val;
+      }
+    }
+
+  }
+
+
 
 }

@@ -124,7 +124,7 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
     // this.callData();
     this.getSortData('','',this.urldata1)
 
-    interval(3000).subscribe(x => {
+    interval(5000).subscribe(x => {
       this.callHeader(this.urldata1);
       // this.callData();
       this.getSortData('','',this.urldata1);
@@ -155,7 +155,12 @@ export class LiveMoniterComponent implements OnInit,OnDestroy,AfterViewInit {
 
   getDataLogout(id,ext){
     this.apiData.getLogout(id,ext).subscribe((data)=>{
+      console.log(data);
+    });
+  }
 
+  getDataBargin(id,ext){
+    this.apiData.getBargin(id,ext).subscribe((data)=>{
       console.log(data);
     });
   }

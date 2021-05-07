@@ -36,6 +36,16 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(61,113,174,0.98112748
   }
 
 
+  .ng-sidebar{
+    background:#fff !important;
+    padding:15px !important
+  }
 
+  .nav-link-text{
+    padding: 10px;
+    /* margin-bottom: 20px; */
+  }
 
-
+  .nav-item{
+    margin-bottom:20px !important;
+  }

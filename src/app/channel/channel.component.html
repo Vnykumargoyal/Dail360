@@ -89,7 +89,7 @@
                       <th scope="col" class="name mb-0 text-sm" data-sort="status">WrapTime <i (click)="onSortClick($event, 'WrapTime')" class="my-icon fa fa-chevron-up"></i></th> -->
                     </tr>
                   </thead>
-                  <tbody class="list">
+                  <tbody class="list" style="height: 78vh;">
                     <tr *ngFor="let element of dataSource | channelFilter:value1 | channelFilter:value2 | channelFilter:value3 | channelFilter: value4 | channelFilter:value5 | channelFilter:value6 | channelFilter: value7 | channelFilter:value8 | channelFilter:value9">
                     <!--   -->
                       <th scope="row">

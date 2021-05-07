@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SidebarModule } from 'ng-sidebar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,6 +52,7 @@ import { ChannelFilterPipe } from './pipe/filter/channel-filter.pipe'
     Ng2SearchPipeModule,
     NgxChartsModule,
     PopoverModule,
+    SidebarModule.forRoot(),
     // MdlPopoverModule,
     // Chart,
     // AmChartsModule,

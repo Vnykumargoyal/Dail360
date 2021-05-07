@@ -47,8 +47,11 @@ export class ApiServiceService {
   }
 
   getLogout(id,ext){
-
     return this.http.get<any>(`http://74.81.33.126:8080/monitorAPI/request/logout?agentid=${id}&extension=${ext}`);
+  }
+
+  getBargin(id,ext){
+    return this.http.get<any>(`http://74.81.33.126:8080/monitorAPI/request/bargin?agentid=${id}&extension=${ext}`);
   }
 
   getCallDataWithSortForCampaign(userData) {

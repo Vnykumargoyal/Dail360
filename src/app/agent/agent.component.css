@@ -1,0 +1,22 @@
+/* .ng-sidebar--left{
+  background:#fff !important;
+  padding:15px !important
+} */
+
+.ng-sidebar{
+  background:#fff !important;
+  padding:15px !important
+}
+
+.modal {
+  position: fixed;
+  z-index: 1050;
+  top: 0;
+  left: 0;
+  display: none;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  background: rgba(0,0,0,0.6);
+}

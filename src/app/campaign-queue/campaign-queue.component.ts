@@ -41,7 +41,7 @@ export class CampaignQueueComponent implements OnInit {
     this.getCampaign(this.urldata1);
     // this.dataSource = ELEMENT_DATA;
 
-    interval(3000).subscribe(x => {
+    interval(5000).subscribe(x => {
       this.getCampaign(this.urldata1);
     });
   }
